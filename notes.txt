@@ -1,0 +1,92 @@
+### Weaviate search
+
+query WeaviateObj($generateSingleResult: DocumentIndividualResultsArg, $nearText: Txt2VecC11yGetObjectsDocumentNearTextInpObj) {
+  Get {
+    Document(nearText: $nearText) {
+      title
+      body
+      _additional {
+        id
+        certainty
+      }
+    }
+  }
+}
+
+variables:
+{
+  "nearText": {
+    "concepts": [
+      "music instrument"
+    ]
+  }
+}
+
+
+### with-GPT result for each
+
+query WeaviateObj($nearText: Txt2VecC11yGetObjectsDocumentNearTextInpObj) {
+  Get {
+    Document(nearText: $nearText) {
+      title
+      body
+      _additional {
+        id
+        certainty
+        generate(
+          singleResult: {
+            prompt: """
+            Summarize the following in a sentence
+
+            {title} - {body}
+            """
+          }
+        ) {
+          singleResult
+          error
+        }
+      }
+    }
+  }
+}
+
+variables:
+{
+  "nearText": {
+    "concepts": [
+      "music instrument"
+    ]
+  }
+}
+
+### with-GPT result for summary 
+
+query WeaviateObj($nearText: Txt2VecC11yGetObjectsDocumentNearTextInpObj) {
+  Get {
+    Document(nearText: $nearText) {
+      title
+      body
+      _additional {
+        id
+        certainty
+        generate(
+          groupedResult: {
+            task: "Explain why the ZephrySynth is not a traditional instrument"
+          }
+        ) {
+          groupedResult
+          error
+        }
+      }
+    }
+  }
+}
+
+variables:
+{
+  "nearText": {
+    "concepts": [
+      "Explain why the ZephrySynth is not a traditional instrument"
+    ]
+  }
+}

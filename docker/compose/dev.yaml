@@ -28,7 +28,7 @@ services:
       CLUSTER_HOSTNAME: "node1"
 
     volumes:
-      - /var/weaviate:/var/lib/weaviate
+      - ./data:/var/lib/weaviate
 
   t2v-transformers:
     image: semitechnologies/transformers-inference:sentence-transformers-paraphrase-multilingual-MiniLM-L12-v2

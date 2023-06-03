@@ -1,0 +1,14 @@
+{
+  "name": "@packages/translator",
+  "version": "0.1.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "private": true,
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "eslint .",
+    "type-check": "tsc --noEmit"
+  }
+}

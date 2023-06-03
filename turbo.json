@@ -7,9 +7,21 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {},
+    "lint:fix": {},
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "clean": {
+      "cache": false,
+      "persistent": false
+    },
+    "type-check": {},
+    "weaviate:populate": {
+      "cache": false
+    },
+    "weaviate:push": {
+      "cache": false
     }
   }
 }

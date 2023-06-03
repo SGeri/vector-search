@@ -9,7 +9,12 @@ const nextConfig = {
   experimental: {
     serverActions: true,
   },
-  transpilePackages: ["config", "@packages/weaviate"],
+  transpilePackages: [
+    "config",
+    "@packages/weaviate",
+    "@packages/translator",
+    "@packages/extractor",
+  ],
   eslint: { ignoreDuringBuilds: false },
   typescript: { ignoreBuildErrors: false },
 };

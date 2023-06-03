@@ -13,6 +13,8 @@
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint .",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "weaviate:populate": "ts-node ./src/commands/populate.ts",
+    "weaviate:push": "ts-node ./src/commands/push.ts"
   }
 }
