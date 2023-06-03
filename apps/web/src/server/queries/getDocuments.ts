@@ -1,11 +1,8 @@
-import { getDocuments } from "@packages/weaviate";
+import { getDocuments as _getDocuments } from "@packages/weaviate";
 
-// todo fix name
-export default async function _getDocuments() {
-  const result = await getDocuments({
+export default async function getDocuments() {
+  return await _getDocuments({
     offset: 0,
-    limit: 100,
+    limit: 0,
   });
-
-  return result;
 }

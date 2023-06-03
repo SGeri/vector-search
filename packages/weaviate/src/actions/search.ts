@@ -1,15 +1,16 @@
+import { RawDocument } from "@packages/types";
+
 import { weaviate } from "../client";
-import { className } from "../schema";
+import { generateSearchQuery } from "../graphql/queries";
+import processDocuments from "../utils/processDocument";
 
-export default async function searchDocument(input: string) {
-  const result = await weaviate.graphql
-    .get()
-    .withClassName(className)
-    .withFields("title body")
-    .withNearText({
-      concepts: [input],
-    })
-    .do();
+export default async function search(prompt: string, generative: boolean) {
+  const query = generateSearchQuery(prompt, generative);
 
-  return result;
+  const queryResult = await weaviate.graphql.raw().withQuery(query).do();
+  const processResult = await processDocuments(
+    queryResult.data.Get.Document as RawDocument[],
+  );
+
+  return processResult;
 }

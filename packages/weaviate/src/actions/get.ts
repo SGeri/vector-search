@@ -18,5 +18,5 @@ export default async function getDocuments({ offset, limit }: Pagination) {
     .withLimit(limit || 100)
     .do();
 
-  return processDocument(result.data.Get.Document);
+  return (await processDocument(result.data.Get.Document)).processedDocuments;
 }
