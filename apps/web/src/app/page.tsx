@@ -1,11 +1,17 @@
-import Component from "./component";
+import Uploader from "@/components/Uploader";
+import Viewer from "@/components/Viewer";
+import getDocuments from "@/server/queries/getDocuments";
 
 export default async function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h2>Hello World!</h2>
+  const documents = await getDocuments();
 
-      <Component />
+  return (
+    <main className="p-28">
+      <h1 className="text-center text-lg font-bold">Hello World!</h1>
+
+      <Viewer documents={documents} />
+
+      <Uploader />
     </main>
   );
 }

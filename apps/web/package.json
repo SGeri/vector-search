@@ -11,9 +11,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@packages/weaviate": "workspace:*",
-    "@packages/translator": "workspace:*",
     "@packages/extractor": "workspace:*",
+    "@packages/translator": "workspace:*",
+    "@packages/types": "workspace:*",
+    "@packages/weaviate": "workspace:*",
     "@t3-oss/env-nextjs": "^0.4.0",
     "@types/node": "20.2.5",
     "@types/react": "18.2.7",

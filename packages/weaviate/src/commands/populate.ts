@@ -1,4 +1,4 @@
-import { addDocument } from "../utils";
+import addDocument from "../actions/add";
 
 const seed = [
   {

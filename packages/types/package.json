@@ -1,15 +1,11 @@
 {
-  "name": "@packages/extractor",
+  "name": "@packages/types",
   "version": "0.1.0",
   "main": "./index.ts",
   "types": "./index.ts",
   "private": true,
   "license": "MIT",
-  "dependencies": {
-    "@types/word-extractor": "^1.0.1",
-    "pdf.js-extract": "^0.2.1",
-    "word-extractor": "^1.0.4"
-  },
+  "dependencies": {},
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "eslint .",

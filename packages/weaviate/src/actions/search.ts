@@ -5,7 +5,7 @@ export default async function searchDocument(input: string) {
   const result = await weaviate.graphql
     .get()
     .withClassName(className)
-    .withFields("title")
+    .withFields("title body")
     .withNearText({
       concepts: [input],
     })
